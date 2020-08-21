@@ -1,0 +1,8 @@
+default menu.c32
+prompt 0
+timeout 30
+MENU TITLE Arrow Bare Metal Installer Menu
+label Install Ubuntu 18.04 Server
+menu label Install Ubuntu 18.04 Server
+kernel networkboot/ubuntu18/linux
+append vga=788 initrd=networkboot/ubuntu18/initrd.gz ks=nfs:192.168.51.4:/nfsshare/ubuntu18/preseed/ubuntu.seed --- quiet

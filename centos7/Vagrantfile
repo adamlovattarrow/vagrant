@@ -1,0 +1,18 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+  config.vm.network "private_network", ip: "192.168.51.4",
+    name: "VirtualBox Host-Only Ethernet Adapter #2"
+  config.vm.hostname = "networkinstaller.localdomain"
+  config.vm.provision "shell",
+  inline: "mkdir -p /home/vagrant"
+  config.vm.provision "file", source: "ubuntu-18.04.4-live-server-amd64.iso", destination: "/home/vagrant/ubuntu-18.04.4-live-server-amd64.iso"
+  config.vm.provision "file", source: "dhcpd.conf", destination: "/home/vagrant/dhcpd.conf"
+  config.vm.provision "file", source: "tftp", destination: "/home/vagrant/tftp"
+  config.vm.provision "file", source: "linux", destination: "/home/vagrant/linux"
+  config.vm.provision "file", source: "initrd.gz", destination: "/home/vagrant/initrd.gz"
+  config.vm.provision "file", source: "default", destination: "/home/vagrant/default"
+  config.vm.provision "file", source: "grub.cfg", destination: "/home/vagrant/grub.cfg"
+  config.vm.provision "file", source: "ubuntu.seed", destination: "/home/vagrant/ubuntu.seed"
+  config.vm.provision "shell", path: "script.sh"
+  config.vm.provision "shell", path: "iptables.sh"
+end
