@@ -20,7 +20,7 @@ timezone Asia/Karachi
 #Root password
 rootpw --disabled
 #Initial user (user with sudo capabilities)
-user ubuntu --fullname "ahmer" --password ahmer1234
+user ubuntu --fullname "baremetal" --password changeme
 #Reboot after installation
 reboot
 #Use text mode install
